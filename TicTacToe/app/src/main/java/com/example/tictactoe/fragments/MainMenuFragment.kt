@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.example.tictactoe.R
 
 
@@ -30,6 +31,8 @@ class MainMenuFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
+    private lateinit var rulesButton: Button
+    private lateinit var gameButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,6 +86,25 @@ class MainMenuFragment : Fragment() {
     }
 
     private fun initFragment() {
+        rulesButton = rootView.findViewById(R.id.button_rules)
+        gameButton = rootView.findViewById(R.id.button_new_game)
 
+        rulesButton.setOnClickListener {
+            val rulesFragment = RulesFragment.newInstance()
+            fragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.frame_layout, rulesFragment)
+                ?.addToBackStack(RulesFragment.toString())
+                ?.commit()
+        }
+
+        gameButton.setOnClickListener {
+            val gameFragment = GameFragment.newInstance()
+            fragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.frame_layout, gameFragment)
+                ?.addToBackStack(GameFragment.toString())
+                ?.commit()
+        }
     }
 }
