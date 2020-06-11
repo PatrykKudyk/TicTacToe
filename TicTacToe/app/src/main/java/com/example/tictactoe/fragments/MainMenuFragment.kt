@@ -99,11 +99,11 @@ class MainMenuFragment : Fragment() {
         }
 
         gameButton.setOnClickListener {
-            val gameFragment = GameFragment.newInstance()
+            val gameChoiceFragment = GameChoiceFragment.newInstance()
             fragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.frame_layout, gameFragment)
-                ?.addToBackStack(GameFragment.toString())
+                ?.replace(R.id.frame_layout, gameChoiceFragment)
+                ?.addToBackStack(GameChoiceFragment.toString())
                 ?.commit()
         }
     }
