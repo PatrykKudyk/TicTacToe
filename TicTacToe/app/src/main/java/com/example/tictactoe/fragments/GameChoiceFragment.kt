@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.example.tictactoe.R
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_game_choice.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,19 +26,21 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AccountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class GameFragment : Fragment() {
+class GameChoiceFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: Int? = null
+    private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
+    private lateinit var playerButton: Button
+    private lateinit var computerButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getInt(ARG_PARAM1)
+            param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -45,7 +50,7 @@ class GameFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        rootView = inflater.inflate(R.layout.fragment_game, container, false);
+        rootView = inflater.inflate(R.layout.fragment_game_choice, container, false);
         initFragment()
         return rootView
     }
@@ -75,15 +80,31 @@ class GameFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: Int) =
-            GameFragment().apply {
+        fun newInstance() =
+            GameChoiceFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_PARAM1, param1)
                 }
             }
     }
 
     private fun initFragment() {
+        playerButton = rootView.findViewById(R.id.button_friend)
+        computerButton = rootView.findViewById(R.id.button_computer)
 
+        playerButton.setOnClickListener {
+            val gameFragment = GameFragment.newInstance(1)
+            fragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.frame_layout, gameFragment)
+                ?.commit()
+        }
+
+        computerButton.setOnClickListener {
+            val gameFragment = GameFragment.newInstance(2)
+            fragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.frame_layout, gameFragment)
+                ?.commit()
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.example.tictactoe
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.tictactoe.fragments.GameChoiceFragment
 import com.example.tictactoe.fragments.GameFragment
 import com.example.tictactoe.fragments.MainMenuFragment
 import com.example.tictactoe.fragments.RulesFragment
@@ -10,7 +11,8 @@ import com.example.tictactoe.fragments.RulesFragment
 class MainActivity : AppCompatActivity(),
     MainMenuFragment.OnFragmentInteractionListener,
     GameFragment.OnFragmentInteractionListener,
-    RulesFragment.OnFragmentInteractionListener {
+    RulesFragment.OnFragmentInteractionListener,
+    GameChoiceFragment.OnFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
