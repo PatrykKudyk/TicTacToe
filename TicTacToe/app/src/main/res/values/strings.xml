@@ -9,4 +9,9 @@
         4. When all 9 squares are full, the game is over.</string>
     <string name="game_choice_player">Play vs friend</string>
     <string name="game_choice_computer">Play vs computer</string>
+    <string name="end_game_green_wins">Green wins!</string>
+    <string name="end_game_brown_wins">Brown wins!</string>
+    <string name="end_game_draw">It\'s a draw!</string>
+    <string name="end_game_back_to_menu">Back to menu</string>
+    <string name="end_game_play_again">Play again</string>
 </resources>

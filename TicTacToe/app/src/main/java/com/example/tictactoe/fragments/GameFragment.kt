@@ -41,6 +41,7 @@ class GameFragment : Fragment() {
     private lateinit var bottomLeftButton: Button
     private lateinit var bottomButton: Button
     private lateinit var bottomRightButton: Button
+    private lateinit var endGameFragment: EndGameFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -362,8 +363,12 @@ class GameFragment : Fragment() {
             }
         }
         if (!canMove) {
+            val parameter1 = param1 as Int
+            endGameFragment = EndGameFragment.newInstance(parameter1, 0)
             fragmentManager
-                ?.popBackStack()
+                ?.beginTransaction()
+                ?.replace(R.id.frame_layout, endGameFragment)
+                ?.commit()
         }
 
     }
