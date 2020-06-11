@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.core.content.ContextCompat
 import com.example.tictactoe.R
 
 
@@ -30,7 +32,15 @@ class GameFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
-
+    private lateinit var upLeftButton: Button
+    private lateinit var upButton: Button
+    private lateinit var upRightButton: Button
+    private lateinit var centerLeftButton: Button
+    private lateinit var centerButton: Button
+    private lateinit var centerRightButton: Button
+    private lateinit var bottomLeftButton: Button
+    private lateinit var bottomButton: Button
+    private lateinit var bottomRightButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,6 +94,277 @@ class GameFragment : Fragment() {
     }
 
     private fun initFragment() {
+        upLeftButton = rootView.findViewById(R.id.game_up_left)
+        upButton = rootView.findViewById(R.id.game_up)
+        upRightButton = rootView.findViewById(R.id.game_up_right)
+        centerLeftButton = rootView.findViewById(R.id.game_center_left)
+        centerButton = rootView.findViewById(R.id.game_center)
+        centerRightButton = rootView.findViewById(R.id.game_center_right)
+        bottomLeftButton = rootView.findViewById(R.id.game_bottom_left)
+        bottomButton = rootView.findViewById(R.id.game_bottom)
+        bottomRightButton = rootView.findViewById(R.id.game_bottom_right)
+
+        if (param1 == 1) {
+            handlePlayerGame()
+        } else if (param1 == 2) {
+            handleComputerGame()
+        }
+    }
+
+    private fun handlePlayerGame() {
+        var player = 0
+        var board = arrayOf<Array<Int>>()
+        for (i in 0..2) {
+            var array = arrayOf<Int>()
+            for (j in 0..2) {
+                array += 0
+            }
+            board += array
+        }
+        upLeftButton.setOnClickListener {
+            if (board[0][0] != 1) {
+                if (player == 0) {
+                    upLeftButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    upLeftButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[0][0] = 1
+                isEnd(board)
+            }
+        }
+
+        upButton.setOnClickListener {
+            if (board[0][1] != 1) {
+                if (player == 0) {
+                    upButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    upButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[0][1] = 1
+                isEnd(board)
+            }
+        }
+
+        upRightButton.setOnClickListener {
+            if (board[0][2] != 1) {
+                if (player == 0) {
+                    upRightButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    upRightButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[0][2] = 1
+                isEnd(board)
+            }
+        }
+
+        centerLeftButton.setOnClickListener {
+            if (board[1][0] != 1) {
+                if (player == 0) {
+                    centerLeftButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    centerLeftButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[1][0] = 1
+                isEnd(board)
+            }
+        }
+
+        centerButton.setOnClickListener {
+            if (board[1][1] != 1) {
+                if (player == 0) {
+                    centerButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    centerButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[1][1] = 1
+                isEnd(board)
+            }
+        }
+
+        centerRightButton.setOnClickListener {
+            if (board[1][2] != 1) {
+                if (player == 0) {
+                    centerRightButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    centerRightButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[1][2] = 1
+                isEnd(board)
+            }
+        }
+
+        bottomLeftButton.setOnClickListener {
+            if (board[2][0] != 1) {
+                if (player == 0) {
+                    bottomLeftButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    bottomLeftButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[2][0] = 1
+                isEnd(board)
+            }
+        }
+
+        bottomButton.setOnClickListener {
+            if (board[2][1] != 1) {
+                if (player == 0) {
+                    bottomButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    bottomButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[2][1] = 1
+                isEnd(board)
+            }
+        }
+
+        bottomRightButton.setOnClickListener {
+            if (board[2][2] != 1) {
+                if (player == 0) {
+                    bottomRightButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorGreenMedium
+                        )
+                    )
+                    player = 1
+                } else {
+                    bottomRightButton.setBackgroundColor(
+                        ContextCompat.getColor(
+                            rootView.context,
+                            R.color.colorBrown
+                        )
+                    )
+                    player = 0
+                }
+                board[2][2] = 1
+                isEnd(board)
+            }
+        }
+    }
+
+    private fun handleComputerGame() {
+        var board = arrayOf<Array<Int>>()
+        for (i in 0..2) {
+            var array = arrayOf<Int>()
+            for (j in 0..2) {
+                array += 0
+            }
+            board += array
+        }
+
+
+    }
+
+    private fun isEnd(board: Array<Array<Int>>) {
+        var end = false
+        var canMove = false
+        for (i in 0..2) {
+            for (j in 0..2) {
+                if (board[i][j] == 0) {
+                    canMove = true
+                }
+            }
+        }
+        if (!canMove) {
+            fragmentManager
+                ?.popBackStack()
+        }
 
     }
 }
