@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import com.example.tictactoe.R
 
 
@@ -24,15 +23,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AccountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MainMenuFragment : Fragment() {
+class GameFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
-    private lateinit var rulesButton: Button
-    private lateinit var gameButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +45,7 @@ class MainMenuFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        rootView = inflater.inflate(R.layout.fragment_main_menu, container, false);
+        rootView = inflater.inflate(R.layout.fragment_game, container, false);
         initFragment()
         return rootView
     }
@@ -79,32 +76,13 @@ class MainMenuFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            MainMenuFragment().apply {
+            GameFragment().apply {
                 arguments = Bundle().apply {
                 }
             }
     }
 
     private fun initFragment() {
-        rulesButton = rootView.findViewById(R.id.button_rules)
-        gameButton = rootView.findViewById(R.id.button_new_game)
 
-        rulesButton.setOnClickListener {
-            val rulesFragment = RulesFragment.newInstance()
-            fragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.frame_layout, rulesFragment)
-                ?.addToBackStack(RulesFragment.toString())
-                ?.commit()
-        }
-
-        gameButton.setOnClickListener {
-            val gameFragment = GameFragment.newInstance()
-            fragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.frame_layout, gameFragment)
-                ?.addToBackStack(GameFragment.toString())
-                ?.commit()
-        }
     }
 }
