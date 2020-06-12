@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContextCompat
 import com.example.tictactoe.R
+import kotlin.random.Random
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -359,6 +360,176 @@ class GameFragment : Fragment() {
             board += array
         }
 
+        upLeftButton.setOnClickListener {
+            if (board[0][0] == 0) {
+                upLeftButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[0][0] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
+
+        upButton.setOnClickListener {
+            if (board[0][1] == 0) {
+                upButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[0][1] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
+
+        upRightButton.setOnClickListener {
+            if (board[0][2] == 0) {
+                upRightButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[0][2] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
+
+        centerLeftButton.setOnClickListener {
+            if (board[1][0] == 0) {
+                centerLeftButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[1][0] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
+
+        centerButton.setOnClickListener {
+            if (board[1][1] == 0) {
+                centerButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[1][1] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
+
+        centerRightButton.setOnClickListener {
+            if (board[1][2] == 0) {
+                centerRightButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[1][2] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
+
+        bottomLeftButton.setOnClickListener {
+            if (board[2][0] == 0) {
+                bottomLeftButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[2][0] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
+
+        bottomButton.setOnClickListener {
+            if (board[2][1] == 0) {
+                bottomButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[2][1] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
+
+        bottomRightButton.setOnClickListener {
+            if (board[2][2] == 0) {
+                bottomRightButton.setBackgroundColor(
+                    ContextCompat.getColor(
+                        rootView.context,
+                        R.color.colorGreenMedium
+                    )
+                )
+                board[2][2] = 1
+                isEnd(board)
+                if(canMove(board)) {
+                    val move = makeComputerMove(board)
+                    board[move[0]][move[1]] = 2
+                    changeButtonToBrown(move[0], move[1])
+                    isEnd(board)
+                }
+            }
+        }
 
     }
 
@@ -366,7 +537,7 @@ class GameFragment : Fragment() {
 
         if (board[0][0] != 0 && board[1][0] != 0 && board[2][0] != 0) {
             if (board[0][0] == board[1][0] && board[0][0] == board[2][0]) {
-                if(board[0][0] == 1){
+                if (board[0][0] == 1) {
                     greenWon()
                 } else {
                     brownWon()
@@ -377,7 +548,7 @@ class GameFragment : Fragment() {
 
         if (board[0][1] != 0 && board[1][1] != 0 && board[2][1] != 0) {
             if (board[0][1] == board[1][1] && board[0][1] == board[2][1]) {
-                if(board[0][1] == 1){
+                if (board[0][1] == 1) {
                     greenWon()
                 } else {
                     brownWon()
@@ -388,7 +559,7 @@ class GameFragment : Fragment() {
 
         if (board[0][2] != 0 && board[1][2] != 0 && board[2][2] != 0) {
             if (board[0][2] == board[1][2] && board[0][2] == board[2][2]) {
-                if(board[0][2] == 1){
+                if (board[0][2] == 1) {
                     greenWon()
                 } else {
                     brownWon()
@@ -399,7 +570,7 @@ class GameFragment : Fragment() {
 
         if (board[0][0] != 0 && board[0][1] != 0 && board[0][2] != 0) {
             if (board[0][0] == board[0][1] && board[0][0] == board[0][2]) {
-                if(board[0][0] == 1){
+                if (board[0][0] == 1) {
                     greenWon()
                 } else {
                     brownWon()
@@ -410,7 +581,7 @@ class GameFragment : Fragment() {
 
         if (board[1][0] != 0 && board[1][1] != 0 && board[1][2] != 0) {
             if (board[1][0] == board[1][1] && board[1][0] == board[1][2]) {
-                if(board[1][0] == 1){
+                if (board[1][0] == 1) {
                     greenWon()
                 } else {
                     brownWon()
@@ -421,7 +592,7 @@ class GameFragment : Fragment() {
 
         if (board[2][0] != 0 && board[2][1] != 0 && board[2][2] != 0) {
             if (board[2][0] == board[2][1] && board[2][0] == board[2][2]) {
-                if(board[2][0] == 1){
+                if (board[2][0] == 1) {
                     greenWon()
                 } else {
                     brownWon()
@@ -432,7 +603,7 @@ class GameFragment : Fragment() {
 
         if (board[0][0] != 0 && board[1][1] != 0 && board[2][2] != 0) {
             if (board[0][0] == board[1][1] && board[0][0] == board[2][2]) {
-                if(board[0][0] == 1){
+                if (board[0][0] == 1) {
                     greenWon()
                 } else {
                     brownWon()
@@ -442,8 +613,8 @@ class GameFragment : Fragment() {
         }
 
         if (board[2][0] != 0 && board[1][1] != 0 && board[0][2] != 0) {
-            if (board[2][0] == board[1][1] && board[0][0] == board[0][2]) {
-                if(board[2][0] == 1){
+            if (board[2][0] == board[1][1] && board[2][0] == board[0][2]) {
+                if (board[2][0] == 1) {
                     greenWon()
                 } else {
                     brownWon()
@@ -461,7 +632,7 @@ class GameFragment : Fragment() {
             }
         }
         if (!canMove) {
-           draw()
+            draw()
             return true
         }
         return false
@@ -483,12 +654,12 @@ class GameFragment : Fragment() {
     private fun greenWon() {
         Handler().postDelayed(
             {
-                val parameter1 = param1 as Int
-                endGameFragment = EndGameFragment.newInstance(parameter1, 1)
-                fragmentManager
-                    ?.beginTransaction()
-                    ?.replace(R.id.frame_layout, endGameFragment)
-                    ?.commit()
+        val parameter1 = param1 as Int
+        endGameFragment = EndGameFragment.newInstance(parameter1, 1)
+        fragmentManager
+            ?.beginTransaction()
+            ?.replace(R.id.frame_layout, endGameFragment)
+            ?.commit()
             }, 600
         )
     }
@@ -496,13 +667,103 @@ class GameFragment : Fragment() {
     private fun brownWon() {
         Handler().postDelayed(
             {
-                val parameter1 = param1 as Int
-                endGameFragment = EndGameFragment.newInstance(parameter1, 2)
-                fragmentManager
-                    ?.beginTransaction()
-                    ?.replace(R.id.frame_layout, endGameFragment)
-                    ?.commit()
+        val parameter1 = param1 as Int
+        endGameFragment = EndGameFragment.newInstance(parameter1, 2)
+        fragmentManager
+            ?.beginTransaction()
+            ?.replace(R.id.frame_layout, endGameFragment)
+            ?.commit()
             }, 600
         )
+    }
+
+    private fun makeComputerMove(board: Array<Array<Int>>): Array<Int> {
+        var x: Int
+        var y: Int
+        do {
+            x = Random.nextInt(0, 3)
+            y = Random.nextInt(0, 3)
+        } while (board[x][y] != 0)
+        return arrayOf(x, y)
+
+    }
+
+    private fun changeButtonToBrown(x: Int, y: Int) {
+        if (x == 0 && y == 0) {
+            upLeftButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        } else if (x == 0 && y == 1) {
+            upButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        } else if (x == 0 && y == 2) {
+            upRightButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        } else if (x == 1 && y == 0) {
+            centerLeftButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        } else if (x == 1 && y == 1) {
+            centerButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        } else if (x == 1 && y == 2) {
+            centerRightButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        } else if (x == 2 && y == 0) {
+            bottomLeftButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        } else if (x == 2 && y == 1) {
+            bottomButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        } else if (x == 2 && y == 2) {
+            bottomRightButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    rootView.context,
+                    R.color.colorBrown
+                )
+            )
+        }
+    }
+
+    private fun canMove(board: Array<Array<Int>>): Boolean {
+        var canMove = false
+        for (i in 0..2) {
+            for (j in 0..2) {
+                if (board[i][j] == 0) {
+                    canMove = true
+                }
+            }
+        }
+        return canMove
     }
 }
