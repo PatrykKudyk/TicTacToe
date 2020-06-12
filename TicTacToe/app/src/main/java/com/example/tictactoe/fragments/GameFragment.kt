@@ -3,6 +3,7 @@ package com.example.tictactoe.fragments
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -363,13 +364,17 @@ class GameFragment : Fragment() {
             }
         }
         if (!canMove) {
-            Thread.sleep(500)
-            val parameter1 = param1 as Int
-            endGameFragment = EndGameFragment.newInstance(parameter1, 0)
-            fragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.frame_layout, endGameFragment)
-                ?.commit()
+            Handler().postDelayed(
+                {
+                    val parameter1 = param1 as Int
+                    endGameFragment = EndGameFragment.newInstance(parameter1, 0)
+                    fragmentManager
+                        ?.beginTransaction()
+                        ?.replace(R.id.frame_layout, endGameFragment)
+                        ?.commit()
+                }, 600
+            )
+
         }
 
     }
