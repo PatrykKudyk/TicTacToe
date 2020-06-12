@@ -44,6 +44,7 @@ class GameFragment : Fragment() {
     private lateinit var bottomButton: Button
     private lateinit var bottomRightButton: Button
     private lateinit var endGameFragment: EndGameFragment
+    private var isEnd = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -375,7 +376,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -394,7 +397,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -413,7 +418,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -432,7 +439,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -451,7 +460,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -470,7 +481,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -489,7 +502,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -508,7 +523,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -527,7 +544,9 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    isEnd(board)
+                    if(!isEnd){
+                        isEnd(board)
+                    }
                 }
             }
         }
@@ -657,6 +676,7 @@ class GameFragment : Fragment() {
     }
 
     private fun greenWon() {
+        isEnd = true
         Handler().postDelayed(
             {
                 val parameter1 = param1 as Int
@@ -674,6 +694,7 @@ class GameFragment : Fragment() {
     }
 
     private fun brownWon() {
+        isEnd = true
         Handler().postDelayed(
             {
                 val parameter1 = param1 as Int
@@ -712,8 +733,8 @@ class GameFragment : Fragment() {
     }
 
     private fun makeMediumMove(board: Array<Array<Int>>): Array<Int> {
-        var probability = Random.nextInt(0,1001)
-        return if (probability <= 700) {
+        var probability = Random.nextInt(0, 1001)
+        return if (probability <= 570) {
             makeCalculatedMove(board)
         } else {
             makeEasyMove(board)
@@ -721,8 +742,8 @@ class GameFragment : Fragment() {
     }
 
     private fun makeHardMove(board: Array<Array<Int>>): Array<Int> {
-        var probability = Random.nextInt(0,1001)
-        return if (probability <= 930) {
+        var probability = Random.nextInt(0, 1001)
+        return if (probability <= 900) {
             makeCalculatedMove(board)
         } else {
             makeEasyMove(board)
@@ -730,6 +751,32 @@ class GameFragment : Fragment() {
     }
 
     private fun makeCalculatedMove(board: Array<Array<Int>>): Array<Int> {
+        var fieldsUsed = 0
+        for (i in 0..2) {
+            for (j in 0..2) {
+                if (board[i][j] != 0) {
+                    fieldsUsed++
+                }
+            }
+        }
+        
+        if (fieldsUsed == 1) {
+            when {
+                board[0][0] == 1 -> {
+                    return arrayOf(2, 2)
+                }
+                board[0][2] == 1 -> {
+                    return arrayOf(2, 0)
+                }
+                board[2][0] == 1 -> {
+                    return arrayOf(0, 2)
+                }
+                board[2][2] == 1 -> {
+                    return arrayOf(0, 0)
+                }
+            }
+        }
+
         return makeEasyMove(board)
     }
 

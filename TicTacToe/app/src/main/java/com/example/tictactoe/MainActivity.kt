@@ -10,7 +10,8 @@ class MainActivity : AppCompatActivity(),
     GameFragment.OnFragmentInteractionListener,
     RulesFragment.OnFragmentInteractionListener,
     GameChoiceFragment.OnFragmentInteractionListener,
-    EndGameFragment.OnFragmentInteractionListener {
+    EndGameFragment.OnFragmentInteractionListener,
+    ComputerChoiceFragment.OnFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
