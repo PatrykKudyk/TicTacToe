@@ -370,7 +370,7 @@ class GameFragment : Fragment() {
                 )
                 board[0][0] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -389,7 +389,7 @@ class GameFragment : Fragment() {
                 )
                 board[0][1] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -408,7 +408,7 @@ class GameFragment : Fragment() {
                 )
                 board[0][2] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -427,7 +427,7 @@ class GameFragment : Fragment() {
                 )
                 board[1][0] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -446,7 +446,7 @@ class GameFragment : Fragment() {
                 )
                 board[1][1] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -465,7 +465,7 @@ class GameFragment : Fragment() {
                 )
                 board[1][2] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -484,7 +484,7 @@ class GameFragment : Fragment() {
                 )
                 board[2][0] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -503,7 +503,7 @@ class GameFragment : Fragment() {
                 )
                 board[2][1] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -522,7 +522,7 @@ class GameFragment : Fragment() {
                 )
                 board[2][2] = 1
                 isEnd(board)
-                if(canMove(board)) {
+                if (canMove(board)) {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
@@ -645,6 +645,10 @@ class GameFragment : Fragment() {
                 endGameFragment = EndGameFragment.newInstance(parameter1, 0)
                 fragmentManager
                     ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left,
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right
+                    )
                     ?.replace(R.id.frame_layout, endGameFragment)
                     ?.commit()
             }, 350
@@ -654,12 +658,16 @@ class GameFragment : Fragment() {
     private fun greenWon() {
         Handler().postDelayed(
             {
-        val parameter1 = param1 as Int
-        endGameFragment = EndGameFragment.newInstance(parameter1, 1)
-        fragmentManager
-            ?.beginTransaction()
-            ?.replace(R.id.frame_layout, endGameFragment)
-            ?.commit()
+                val parameter1 = param1 as Int
+                endGameFragment = EndGameFragment.newInstance(parameter1, 1)
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left,
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right
+                    )
+                    ?.replace(R.id.frame_layout, endGameFragment)
+                    ?.commit()
             }, 600
         )
     }
@@ -667,12 +675,16 @@ class GameFragment : Fragment() {
     private fun brownWon() {
         Handler().postDelayed(
             {
-        val parameter1 = param1 as Int
-        endGameFragment = EndGameFragment.newInstance(parameter1, 2)
-        fragmentManager
-            ?.beginTransaction()
-            ?.replace(R.id.frame_layout, endGameFragment)
-            ?.commit()
+                val parameter1 = param1 as Int
+                endGameFragment = EndGameFragment.newInstance(parameter1, 2)
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.setCustomAnimations(
+                        R.anim.enter_left_to_right, R.anim.exit_right_to_left,
+                        R.anim.enter_right_to_left, R.anim.exit_left_to_right
+                    )
+                    ?.replace(R.id.frame_layout, endGameFragment)
+                    ?.commit()
             }, 600
         )
     }
