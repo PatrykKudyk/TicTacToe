@@ -751,32 +751,109 @@ class GameFragment : Fragment() {
     }
 
     private fun makeCalculatedMove(board: Array<Array<Int>>): Array<Int> {
-        var fieldsUsed = 0
-        for (i in 0..2) {
-            for (j in 0..2) {
-                if (board[i][j] != 0) {
-                    fieldsUsed++
-                }
-            }
+        //  CHECK IF CAN WIN
+        if(board[0][0] == 2 && board[0][1] == 2 && board[0][2] == 0) {
+            return arrayOf(0, 2)
+        } else if (board[0][0] == 2 && board[0][2] == 2 && board[0][1] == 0) {
+            return arrayOf(0, 1)
+        } else if (board[0][1] == 2 && board[0][2] == 2 && board[0][0] == 0) {
+            return arrayOf(0, 0)
+        } else  if(board[1][0] == 2 && board[1][1] == 2 && board[1][2] == 0) {
+            return arrayOf(1, 2)
+        } else if (board[1][0] == 2 && board[1][2] == 2 && board[1][1] == 0) {
+            return arrayOf(1, 1)
+        } else if (board[1][1] == 2 && board[1][2] == 2 && board[1][0] == 0) {
+            return arrayOf(1, 0)
+        } else  if(board[2][0] == 2 && board[2][1] == 2 && board[2][2] == 0) {
+            return arrayOf(2, 2)
+        } else if (board[2][0] == 2 && board[2][2] == 2 && board[2][1] == 0) {
+            return arrayOf(2, 1)
+        } else if (board[2][1] == 2 && board[2][2] == 2 && board[2][0] == 0) {
+            return arrayOf(2, 0)
+        } else if (board[0][0] == 2 && board[1][0] == 2 && board[2][0] == 0) {
+            return arrayOf(2, 0)
+        } else if (board[0][0] == 2 && board[2][0] == 2 && board[1][0] == 0) {
+            return arrayOf(1, 0)
+        } else if (board[2][0] == 2 && board[1][0] == 2 && board[0][0] == 0) {
+            return arrayOf(0, 0)
+        } else if (board[0][1] == 2 && board[1][1] == 2 && board[2][1] == 0) {
+            return arrayOf(2, 1)
+        } else if (board[0][1] == 2 && board[2][1] == 2 && board[1][1] == 0) {
+            return arrayOf(1, 1)
+        } else if (board[2][1] == 2 && board[1][1] == 2 && board[0][1] == 0) {
+            return arrayOf(0, 1)
+        } else if (board[0][2] == 2 && board[1][2] == 2 && board[2][2] == 0) {
+            return arrayOf(2, 2)
+        } else if (board[0][2] == 2 && board[2][2] == 2 && board[1][2] == 0) {
+            return arrayOf(1, 2)
+        } else if (board[2][2] == 2 && board[1][2] == 2 && board[0][2] == 0) {
+            return arrayOf(0, 2)
+        } else if (board[0][0] == 2 && board[1][1] == 2 && board[2][2] == 0) {
+            return arrayOf(2, 2)
+        } else if (board[0][0] == 2 && board[2][2] == 2 && board[1][1] == 0) {
+            return arrayOf(1, 1)
+        } else if (board[2][2] == 2 && board[1][1] == 2 && board[0][0] == 0) {
+            return arrayOf(0, 0)
+        } else if (board[0][2] == 2 && board[1][1] == 2 && board[2][0] == 0) {
+            return arrayOf(2, 0)
+        } else if (board[0][2] == 2 && board[2][0] == 2 && board[1][1] == 0) {
+            return arrayOf(1, 1)
+        } else if (board[2][0] == 2 && board[1][1] == 2 && board[0][2] == 0) {
+            return arrayOf(0, 2)
         }
-        
-        if (fieldsUsed == 1) {
-            when {
-                board[0][0] == 1 -> {
-                    return arrayOf(2, 2)
-                }
-                board[0][2] == 1 -> {
-                    return arrayOf(2, 0)
-                }
-                board[2][0] == 1 -> {
-                    return arrayOf(0, 2)
-                }
-                board[2][2] == 1 -> {
-                    return arrayOf(0, 0)
-                }
-            }
-        }
+        //  CHECK IF CAN WIN
 
+        //  CHECK IF ENEMY GONNA WIN
+        if(board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 0) {
+            return arrayOf(0, 2)
+        } else if (board[0][0] == 1 && board[0][2] == 1 && board[0][1] == 0) {
+            return arrayOf(0, 1)
+        } else if (board[0][1] == 1 && board[0][2] == 1 && board[0][0] == 0) {
+            return arrayOf(0, 0)
+        } else  if(board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 0) {
+            return arrayOf(1, 2)
+        } else if (board[1][0] == 1 && board[1][2] == 1 && board[1][1] == 0) {
+            return arrayOf(1, 1)
+        } else if (board[1][1] == 1 && board[1][2] == 1 && board[1][0] == 0) {
+            return arrayOf(1, 0)
+        } else  if(board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 0) {
+            return arrayOf(2, 2)
+        } else if (board[2][0] == 1 && board[2][2] == 1 && board[2][1] == 0) {
+            return arrayOf(2, 1)
+        } else if (board[2][1] == 1 && board[2][2] == 1 && board[2][0] == 0) {
+            return arrayOf(2, 0)
+        } else if (board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 0) {
+            return arrayOf(2, 0)
+        } else if (board[0][0] == 1 && board[2][0] == 1 && board[1][0] == 0) {
+            return arrayOf(1, 0)
+        } else if (board[2][0] == 1 && board[1][0] == 1 && board[0][0] == 0) {
+            return arrayOf(0, 0)
+        } else if (board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 0) {
+            return arrayOf(2, 1)
+        } else if (board[0][1] == 1 && board[2][1] == 1 && board[1][1] == 0) {
+            return arrayOf(1, 1)
+        } else if (board[2][1] == 1 && board[1][1] == 1 && board[0][1] == 0) {
+            return arrayOf(0, 1)
+        } else if (board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 0) {
+            return arrayOf(2, 2)
+        } else if (board[0][2] == 1 && board[2][2] == 1 && board[1][2] == 0) {
+            return arrayOf(1, 2)
+        } else if (board[2][2] == 1 && board[1][2] == 1 && board[0][2] == 0) {
+            return arrayOf(0, 2)
+        } else if (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 0) {
+            return arrayOf(2, 2)
+        } else if (board[0][0] == 1 && board[2][2] == 1 && board[1][1] == 0) {
+            return arrayOf(1, 1)
+        } else if (board[2][2] == 1 && board[1][1] == 1 && board[0][0] == 0) {
+            return arrayOf(0, 0)
+        } else if (board[0][2] == 1 && board[1][1] == 1 && board[2][0] == 0) {
+            return arrayOf(2, 0)
+        } else if (board[0][2] == 1 && board[2][0] == 1 && board[1][1] == 0) {
+            return arrayOf(1, 1)
+        } else if (board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 0) {
+            return arrayOf(0, 2)
+        }
+        //  CHECK IF ENEMY GONNA WIN
         return makeEasyMove(board)
     }
 
