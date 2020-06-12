@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">TicTacToe</string>
+    <string name="title">Tic Tac Toe</string>
+    <string name="menu_new_game">New Game</string>
+    <string name="menu_rules">Game Rules</string>
+    <string name="rules">1. The game is played on a grid that\'s 3 squares by 3 squares.\n\n
+        2. You are green, your friend (or the computer) is brown. Players take turns putting their marks in empty squares.\n\n
+        3. The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.\n\n
+        4. When all 9 squares are full, the game is over.</string>
+    <string name="game_choice_player">Play vs friend</string>
+    <string name="game_choice_computer">Play vs computer</string>
+    <string name="end_game_green_wins">Green wins!</string>
+    <string name="end_game_brown_wins">Brown wins!</string>
+    <string name="end_game_draw">It\'s a draw!</string>
+    <string name="end_game_back_to_menu">Back to menu</string>
+    <string name="end_game_play_again">Play again</string>
 </resources>
