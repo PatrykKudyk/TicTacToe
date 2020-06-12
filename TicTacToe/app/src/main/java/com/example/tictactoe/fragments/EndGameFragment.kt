@@ -35,6 +35,7 @@ class EndGameFragment : Fragment() {
     private lateinit var rootView: View
     private lateinit var backToMenuButton: Button
     private lateinit var playAgainButton: Button
+    private lateinit var gameFragment: GameFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -120,6 +121,14 @@ class EndGameFragment : Fragment() {
                 ?.popBackStackImmediate()
         }
 
+        playAgainButton.setOnClickListener {
+            val parameter1 = param1  as Int
+            gameFragment = GameFragment.newInstance(parameter1)
+            fragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.frame_layout, gameFragment)
+                ?.commit()
+        }
     }
 
     private fun getStringIdentifier(context: Context, name: String): Int {

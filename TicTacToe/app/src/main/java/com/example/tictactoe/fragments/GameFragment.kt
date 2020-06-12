@@ -363,6 +363,7 @@ class GameFragment : Fragment() {
             }
         }
         if (!canMove) {
+            Thread.sleep(500)
             val parameter1 = param1 as Int
             endGameFragment = EndGameFragment.newInstance(parameter1, 0)
             fragmentManager
