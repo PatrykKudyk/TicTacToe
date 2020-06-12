@@ -14,4 +14,7 @@
     <string name="end_game_draw">It\'s a draw!</string>
     <string name="end_game_back_to_menu">Back to menu</string>
     <string name="end_game_play_again">Play again</string>
+    <string name="computer_easy">Easy</string>
+    <string name="computer_medium">Medium</string>
+    <string name="computer_hard">Hard</string>
 </resources>
