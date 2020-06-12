@@ -87,6 +87,20 @@ class ComputerChoiceFragment : Fragment() {
     }
 
     private fun initFragment() {
+        easyButton = rootView.findViewById(R.id.button_easy)
+        mediumButton = rootView.findViewById(R.id.button_medium)
+        hardButton = rootView.findViewById(R.id.button_hard)
 
+        easyButton.setOnClickListener {
+
+        }
+
+        mediumButton.setOnClickListener {
+
+        }
+
+        hardButton.setOnClickListener {
+
+        }
     }
 }

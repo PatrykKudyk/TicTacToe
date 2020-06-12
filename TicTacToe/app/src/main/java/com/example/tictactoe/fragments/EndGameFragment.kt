@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_end_game.view.*
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM3 = "param3"
 
 /**
  * A simple [Fragment] subclass.
@@ -30,6 +31,7 @@ class EndGameFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: Int? = null
     private var param2: Int? = null
+    private var param3: Int? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var rootView: View
@@ -42,6 +44,7 @@ class EndGameFragment : Fragment() {
         arguments?.let {
             param1 = it.getInt(ARG_PARAM1)
             param2 = it.getInt(ARG_PARAM2)
+            param3 = it.getInt(ARG_PARAM3)
         }
     }
 
@@ -80,11 +83,12 @@ class EndGameFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: Int, param2: Int) =
+        fun newInstance(param1: Int, param2: Int, param3: Int) =
             EndGameFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_PARAM1, param1)
                     putInt(ARG_PARAM2, param2)
+                    putInt(ARG_PARAM3, param3)
                 }
             }
     }
@@ -122,8 +126,7 @@ class EndGameFragment : Fragment() {
         }
 
         playAgainButton.setOnClickListener {
-            val parameter1 = param1  as Int
-            gameFragment = GameFragment.newInstance(parameter1)
+            gameFragment = GameFragment.newInstance(param1 as Int, param3 as Int)
             fragmentManager
                 ?.beginTransaction()
                 ?.setCustomAnimations(
