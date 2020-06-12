@@ -133,6 +133,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[0][0] = 1
                 } else {
                     upLeftButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -141,8 +142,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[0][0] = 2
                 }
-                board[0][0] = 1
                 isEnd(board)
             }
         }
@@ -157,6 +158,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[0][1] = 1
                 } else {
                     upButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -165,8 +167,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[0][1] = 2
                 }
-                board[0][1] = 1
                 isEnd(board)
             }
         }
@@ -181,6 +183,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[0][2] = 1
                 } else {
                     upRightButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -189,8 +192,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[0][2] = 2
                 }
-                board[0][2] = 1
                 isEnd(board)
             }
         }
@@ -205,6 +208,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[1][0] = 1
                 } else {
                     centerLeftButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -213,8 +217,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[1][0] = 2
                 }
-                board[1][0] = 1
                 isEnd(board)
             }
         }
@@ -229,6 +233,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[1][1] = 1
                 } else {
                     centerButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -237,8 +242,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[1][1] = 2
                 }
-                board[1][1] = 1
                 isEnd(board)
             }
         }
@@ -253,6 +258,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[1][2] = 1
                 } else {
                     centerRightButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -261,8 +267,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[1][2] = 2
                 }
-                board[1][2] = 1
                 isEnd(board)
             }
         }
@@ -277,6 +283,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[2][0] = 1
                 } else {
                     bottomLeftButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -285,8 +292,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[2][0] = 2
                 }
-                board[2][0] = 1
                 isEnd(board)
             }
         }
@@ -301,6 +308,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[2][1] = 1
                 } else {
                     bottomButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -309,8 +317,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[2][1] = 2
                 }
-                board[2][1] = 1
                 isEnd(board)
             }
         }
@@ -325,6 +333,7 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 1
+                    board[2][2] = 1
                 } else {
                     bottomRightButton.setBackgroundColor(
                         ContextCompat.getColor(
@@ -333,8 +342,8 @@ class GameFragment : Fragment() {
                         )
                     )
                     player = 0
+                    board[2][2] = 2
                 }
-                board[2][2] = 1
                 isEnd(board)
             }
         }
@@ -353,8 +362,96 @@ class GameFragment : Fragment() {
 
     }
 
-    private fun isEnd(board: Array<Array<Int>>) {
-        var end = false
+    private fun isEnd(board: Array<Array<Int>>): Boolean {
+
+        if (board[0][0] != 0 && board[1][0] != 0 && board[2][0] != 0) {
+            if (board[0][0] == board[1][0] && board[0][0] == board[2][0]) {
+                if(board[0][0] == 1){
+                    greenWon()
+                } else {
+                    brownWon()
+                }
+                return true
+            }
+        }
+
+        if (board[0][1] != 0 && board[1][1] != 0 && board[2][1] != 0) {
+            if (board[0][1] == board[1][1] && board[0][1] == board[2][1]) {
+                if(board[0][1] == 1){
+                    greenWon()
+                } else {
+                    brownWon()
+                }
+                return true
+            }
+        }
+
+        if (board[0][2] != 0 && board[1][2] != 0 && board[2][2] != 0) {
+            if (board[0][2] == board[1][2] && board[0][2] == board[2][2]) {
+                if(board[0][2] == 1){
+                    greenWon()
+                } else {
+                    brownWon()
+                }
+                return true
+            }
+        }
+
+        if (board[0][0] != 0 && board[0][1] != 0 && board[0][2] != 0) {
+            if (board[0][0] == board[0][1] && board[0][0] == board[0][2]) {
+                if(board[0][0] == 1){
+                    greenWon()
+                } else {
+                    brownWon()
+                }
+                return true
+            }
+        }
+
+        if (board[1][0] != 0 && board[1][1] != 0 && board[1][2] != 0) {
+            if (board[1][0] == board[1][1] && board[1][0] == board[1][2]) {
+                if(board[1][0] == 1){
+                    greenWon()
+                } else {
+                    brownWon()
+                }
+                return true
+            }
+        }
+
+        if (board[2][0] != 0 && board[2][1] != 0 && board[2][2] != 0) {
+            if (board[2][0] == board[2][1] && board[2][0] == board[2][2]) {
+                if(board[2][0] == 1){
+                    greenWon()
+                } else {
+                    brownWon()
+                }
+                return true
+            }
+        }
+
+        if (board[0][0] != 0 && board[1][1] != 0 && board[2][2] != 0) {
+            if (board[0][0] == board[1][1] && board[0][0] == board[2][2]) {
+                if(board[0][0] == 1){
+                    greenWon()
+                } else {
+                    brownWon()
+                }
+                return true
+            }
+        }
+
+        if (board[2][0] != 0 && board[1][1] != 0 && board[0][2] != 0) {
+            if (board[2][0] == board[1][1] && board[0][0] == board[0][2]) {
+                if(board[2][0] == 1){
+                    greenWon()
+                } else {
+                    brownWon()
+                }
+                return true
+            }
+        }
+
         var canMove = false
         for (i in 0..2) {
             for (j in 0..2) {
@@ -364,18 +461,48 @@ class GameFragment : Fragment() {
             }
         }
         if (!canMove) {
-            Handler().postDelayed(
-                {
-                    val parameter1 = param1 as Int
-                    endGameFragment = EndGameFragment.newInstance(parameter1, 0)
-                    fragmentManager
-                        ?.beginTransaction()
-                        ?.replace(R.id.frame_layout, endGameFragment)
-                        ?.commit()
-                }, 600
-            )
-
+           draw()
+            return true
         }
+        return false
+    }
 
+    private fun draw() {
+        Handler().postDelayed(
+            {
+                val parameter1 = param1 as Int
+                endGameFragment = EndGameFragment.newInstance(parameter1, 0)
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.replace(R.id.frame_layout, endGameFragment)
+                    ?.commit()
+            }, 350
+        )
+    }
+
+    private fun greenWon() {
+        Handler().postDelayed(
+            {
+                val parameter1 = param1 as Int
+                endGameFragment = EndGameFragment.newInstance(parameter1, 1)
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.replace(R.id.frame_layout, endGameFragment)
+                    ?.commit()
+            }, 600
+        )
+    }
+
+    private fun brownWon() {
+        Handler().postDelayed(
+            {
+                val parameter1 = param1 as Int
+                endGameFragment = EndGameFragment.newInstance(parameter1, 2)
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.replace(R.id.frame_layout, endGameFragment)
+                    ?.commit()
+            }, 600
+        )
     }
 }
