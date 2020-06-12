@@ -92,7 +92,7 @@ class GameChoiceFragment : Fragment() {
         computerButton = rootView.findViewById(R.id.button_computer)
 
         playerButton.setOnClickListener {
-            val gameFragment = GameFragment.newInstance(1)
+            val gameFragment = GameFragment.newInstance(1, 0)
             fragmentManager
                 ?.beginTransaction()
                 ?.setCustomAnimations(
