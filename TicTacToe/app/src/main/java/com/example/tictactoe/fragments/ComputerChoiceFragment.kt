@@ -92,15 +92,39 @@ class ComputerChoiceFragment : Fragment() {
         hardButton = rootView.findViewById(R.id.button_hard)
 
         easyButton.setOnClickListener {
-
+            val gameFragment = GameFragment.newInstance(2, 0)
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left,
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right
+                )
+                ?.replace(R.id.frame_layout, gameFragment)
+                ?.commit()
         }
 
         mediumButton.setOnClickListener {
-
+            val gameFragment = GameFragment.newInstance(2, 1)
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left,
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right
+                )
+                ?.replace(R.id.frame_layout, gameFragment)
+                ?.commit()
         }
 
         hardButton.setOnClickListener {
-
+            val gameFragment = GameFragment.newInstance(2, 2)
+            fragmentManager
+                ?.beginTransaction()
+                ?.setCustomAnimations(
+                    R.anim.enter_left_to_right, R.anim.exit_right_to_left,
+                    R.anim.enter_right_to_left, R.anim.exit_left_to_right
+                )
+                ?.replace(R.id.frame_layout, gameFragment)
+                ?.commit()
         }
     }
 }
