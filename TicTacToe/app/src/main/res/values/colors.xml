@@ -4,8 +4,10 @@
     <color name="colorPrimaryDark">#388742</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBackground">#ebebeb</color>
+    <color name="colorButton">#c3c3c3</color>
     <color name="colorBlack">#060606</color>
     <color name="colorGreenLight">#5da465</color>
     <color name="colorGreenMedium">#388742</color>
     <color name="colorGreenDark">#1E6C27</color>
+    <color name="colorBrown">#796324</color>
 </resources>
