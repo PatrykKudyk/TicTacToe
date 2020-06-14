@@ -376,7 +376,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -397,7 +397,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -418,7 +418,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -439,7 +439,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -460,7 +460,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -481,7 +481,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -502,7 +502,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -523,7 +523,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -544,7 +544,7 @@ class GameFragment : Fragment() {
                     val move = makeComputerMove(board)
                     board[move[0]][move[1]] = 2
                     changeButtonToBrown(move[0], move[1])
-                    if(!isEnd){
+                    if (!isEnd) {
                         isEnd(board)
                     }
                 }
@@ -752,19 +752,19 @@ class GameFragment : Fragment() {
 
     private fun makeCalculatedMove(board: Array<Array<Int>>): Array<Int> {
         //  CHECK IF CAN WIN
-        if(board[0][0] == 2 && board[0][1] == 2 && board[0][2] == 0) {
+        if (board[0][0] == 2 && board[0][1] == 2 && board[0][2] == 0) {
             return arrayOf(0, 2)
         } else if (board[0][0] == 2 && board[0][2] == 2 && board[0][1] == 0) {
             return arrayOf(0, 1)
         } else if (board[0][1] == 2 && board[0][2] == 2 && board[0][0] == 0) {
             return arrayOf(0, 0)
-        } else  if(board[1][0] == 2 && board[1][1] == 2 && board[1][2] == 0) {
+        } else if (board[1][0] == 2 && board[1][1] == 2 && board[1][2] == 0) {
             return arrayOf(1, 2)
         } else if (board[1][0] == 2 && board[1][2] == 2 && board[1][1] == 0) {
             return arrayOf(1, 1)
         } else if (board[1][1] == 2 && board[1][2] == 2 && board[1][0] == 0) {
             return arrayOf(1, 0)
-        } else  if(board[2][0] == 2 && board[2][1] == 2 && board[2][2] == 0) {
+        } else if (board[2][0] == 2 && board[2][1] == 2 && board[2][2] == 0) {
             return arrayOf(2, 2)
         } else if (board[2][0] == 2 && board[2][2] == 2 && board[2][1] == 0) {
             return arrayOf(2, 1)
@@ -804,19 +804,19 @@ class GameFragment : Fragment() {
         //  CHECK IF CAN WIN
 
         //  CHECK IF ENEMY GONNA WIN
-        if(board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 0) {
+        if (board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 0) {
             return arrayOf(0, 2)
         } else if (board[0][0] == 1 && board[0][2] == 1 && board[0][1] == 0) {
             return arrayOf(0, 1)
         } else if (board[0][1] == 1 && board[0][2] == 1 && board[0][0] == 0) {
             return arrayOf(0, 0)
-        } else  if(board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 0) {
+        } else if (board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 0) {
             return arrayOf(1, 2)
         } else if (board[1][0] == 1 && board[1][2] == 1 && board[1][1] == 0) {
             return arrayOf(1, 1)
         } else if (board[1][1] == 1 && board[1][2] == 1 && board[1][0] == 0) {
             return arrayOf(1, 0)
-        } else  if(board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 0) {
+        } else if (board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 0) {
             return arrayOf(2, 2)
         } else if (board[2][0] == 1 && board[2][2] == 1 && board[2][1] == 0) {
             return arrayOf(2, 1)
@@ -854,6 +854,47 @@ class GameFragment : Fragment() {
             return arrayOf(0, 2)
         }
         //  CHECK IF ENEMY GONNA WIN
+
+        //  PLAY CENTER
+        if (board[1][1] == 0) {
+            return arrayOf(1, 1)
+        }
+
+        //  PLAY OPPOSITE CORNER
+        if (board[0][0] == 1 && board[2][2] == 0) {
+            return arrayOf(2, 2)
+        } else if (board[0][2] == 1 && board[2][0] == 0) {
+            return arrayOf(2, 0)
+        } else if (board[2][2] == 1 && board[0][0] == 0) {
+            return arrayOf(0, 0)
+        } else if (board[2][0] == 1 && board[0][2] == 0) {
+            return arrayOf(0, 2)
+        }
+
+        //  PLAY EMPTY CORNER
+        val x = Random.nextInt(0, 4)
+        if (x == 0 && board[0][0] == 0) {
+            return arrayOf(0, 0)
+        } else if (x == 1 && board[0][2] == 0) {
+            return arrayOf(0, 2)
+        } else if (x == 2 && board[2][0] == 0) {
+            return arrayOf(2, 0)
+        } else if (x == 3 && board[2][2] == 0) {
+            return arrayOf(2, 2)
+        }
+
+        //  PLAY EMPTY SIDE
+        val y = Random.nextInt(0, 4)
+        if (y == 0 && board[0][1] == 0) {
+            return arrayOf(0, 1)
+        } else if (y == 1 && board[1][0] == 0) {
+            return arrayOf(1, 0)
+        } else if (y == 2 && board[1][2] == 0) {
+            return arrayOf(1, 2)
+        } else if (y == 3 && board[2][1] == 0) {
+            return arrayOf(2, 1)
+        }
+
         return makeEasyMove(board)
     }
 
